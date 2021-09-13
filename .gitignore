@@ -16,8 +16,6 @@ build/
 bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
-!**/src/main/resources/static/css/
-!**/src/main/resources/static/js/
 
 
 ### IntelliJ IDEA ###
@@ -38,4 +36,6 @@ out/
 
 ### VS Code ###
 .vscode/
-src/main/resources/templates/
+src/main/resources/static/
+src/main/resources/static/css/
+src/main/resources/static/js/
