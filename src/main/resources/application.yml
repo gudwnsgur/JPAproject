@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/../../jpastudy;
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+    # h2 연동
+
+  jpa:
+    hibernate:
+      ddl-auto: create  # 자동으로 table 생성
+    properties:
+      hibernate:
+#        show_sql: true
+        format_sql: true
+
+logging:
+  level:
+    org.hibernate.SQL: debug  # SQL이 log를 통해 다 보임
+    org.hibernate.type: trace
+
+
+
