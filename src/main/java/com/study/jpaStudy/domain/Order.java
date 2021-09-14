@@ -20,14 +20,14 @@ public class Order {
     @Column(name = "order_id")
     private Long id;
 
-    @ManyToOne // order - member 가 다대일 관계
+    @ManyToOne(fetch = FetchType.LAZY) // order - member 가 다대일 관계
     @JoinColumn(name = "member_id") // 매핑을 무엇으로 할것인가
     private Member member;
 
     @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems = new ArrayList<>();
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "delivery_id")
     private Delivery delivery;
 
