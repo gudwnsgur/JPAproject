@@ -9,19 +9,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Getter @Setter
-public class Member {
+    @Getter @Setter
+    public class Member {
 
-    @Id @GeneratedValue
-    @Column(name = "member_id")
-    private Long id;
+        @Id @GeneratedValue
+        @Column(name = "member_id")
+        private Long id;
 
-    private String name;
+        private String name;
 
-    @Embedded
-    private Address address;
+        @Embedded
+        private Address address;
 
-    @OneToMany(mappedBy = "member") // 읽기 전용
-    // member - order 가 일대다 관계
-    private List<Order> orders = new ArrayList<>();
+        @OneToMany(mappedBy = "member") // 읽기 전용
+        // member - order 가 일대다 관계
+        private List<Order> orders = new ArrayList<>();
 }
