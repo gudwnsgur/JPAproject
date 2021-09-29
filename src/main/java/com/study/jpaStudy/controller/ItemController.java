@@ -64,17 +64,24 @@ public class ItemController {
 
 
     @PostMapping("item/{itemId}/edit")
-    public String updateItem(@ModelAttribute("form") BookForm form) {
-        Book book = new Book();
+    public String updateItem(@PathVariable Long itemId, @ModelAttribute("form") BookForm form) {
+//        Book book = new Book();
+//        book.setId(form.getId());
+//        book.setName(form.getName());
+//        book.setPrice(form.getPrice());
+//        book.setStockQuantity(form.getStockQuantity());
+//        book.setAuthor(form.getAuthor());
+//        book.setIsbn(form.getIsbn());
+//        itemService.saveItem(book);
 
-        book.setId(form.getId());
-        book.setName(form.getName());
-        book.setPrice(form.getPrice());
-        book.setStockQuantity(form.getStockQuantity());
-        book.setAuthor(form.getAuthor());
-        book.setIsbn(form.getIsbn());
+        /**
+         * 어설프게 Controller에서 엔티티를 생성하지 마라
+         * Entity를 Parameter로 쓰지 마라
+         * update할게 많다 : 파라미터들을 담는 DTO를 사용하면 좋음
+         */
+        itemService.updateItem(itemId, form.getName(),
+                form.getPrice(), form.getStockQuantity());
 
-        itemService.saveItem(book);
         return "redirect:items";
     }
 }
